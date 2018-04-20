@@ -82,7 +82,7 @@ def Out2File(dict):
     for ran in range(1, 4):
         file_name = file_name + str(random.randint(0,9))
 
-    file_name = file_name + '.txt'
+    file_name = 'bs1' + file_name + '.txt'
     # print(file_name)
     # exit()
     with open(file_name, 'a+', encoding='utf-8') as f:
