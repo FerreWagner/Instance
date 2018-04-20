@@ -3,7 +3,6 @@
 抓取百度贴吧---生活大爆炸吧的基本内容
 爬虫线路： requests - bs4
 Python版本： 3.6
-OS： mac os 12.12.4
 '''
 import random
 import requests
