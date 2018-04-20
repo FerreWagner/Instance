@@ -1,10 +1,10 @@
+
 '''
 抓取百度贴吧---生活大爆炸吧的基本内容
 爬虫线路： requests - bs4
 Python版本： 3.6
 OS： mac os 12.12.4
 '''
-
 import requests
 import time
 from bs4 import BeautifulSoup
@@ -15,10 +15,10 @@ from bs4 import BeautifulSoup
 def get_html(url):
     try:
         r = requests.get(url, timeout=30)
-        r.raise_for_status()
+        # r.raise_for_status()
         # 这里我们知道百度贴吧的编码是utf-8，所以手动设置的。爬去其他的页面时建议使用：
         # r.endcodding = r.apparent_endconding
-        r.encoding = 'utf-8'
+        # r.encoding = 'utf-8'
         return r.text
     except:
         return " ERROR "
@@ -70,12 +70,21 @@ def Out2File(dict):
     保存到当前目录的 TTBT.txt文件中。
 
     '''
-    with open('TTBT.txt', 'a+') as f:
+    # with open('TTBT.txt', 'a+') as f:
+    # file_name = ''
+    # for ran in range(1,4):
+    #     file_name
+    # file_name.join('.txt')
+    # print(file_name)
+    # exit()
+
+    with open('213.txt', 'a+', encoding='utf-8') as f:
         for comment in dict:
             f.write('标题： {} \t 链接：{} \t 发帖人：{} \t 发帖时间：{} \t 回复数量： {} \n'.format(
                 comment['title'], comment['link'], comment['name'], comment['time'], comment['replyNum']))
 
         print('page crawl ok')
+        f.close()
 
 
 def main(base_url, deep):
@@ -91,6 +100,7 @@ def main(base_url, deep):
         content = get_content(url)
         Out2File(content)
     print('所有的信息都已经保存完毕！')
+
 
 
 base_url = 'http://tieba.baidu.com/f?kw=%E7%94%9F%E6%B4%BB%E5%A4%A7%E7%88%86%E7%82%B8&ie=utf-8'
