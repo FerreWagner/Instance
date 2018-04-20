@@ -5,6 +5,7 @@
 Python版本： 3.6
 OS： mac os 12.12.4
 '''
+import random
 import requests
 import time
 from bs4 import BeautifulSoup
@@ -15,7 +16,7 @@ from bs4 import BeautifulSoup
 def get_html(url):
     try:
         r = requests.get(url, timeout=30)
-        # r.raise_for_status()
+        r.raise_for_status()
         # 这里我们知道百度贴吧的编码是utf-8，所以手动设置的。爬去其他的页面时建议使用：
         # r.endcodding = r.apparent_endconding
         # r.encoding = 'utf-8'
@@ -77,8 +78,15 @@ def Out2File(dict):
     # file_name.join('.txt')
     # print(file_name)
     # exit()
+    file_name = ''
+    for ran in range(1, 4):
+        file_name = file_name + str(random.randint(0,9))
 
-    with open('213.txt', 'a+', encoding='utf-8') as f:
+    file_name = file_name + '.txt'
+    # print(file_name)
+    # exit()
+    with open(file_name, 'a+', encoding='utf-8') as f:
+    # with open('TTBT.txt', 'a+') as f:
         for comment in dict:
             f.write('标题： {} \t 链接：{} \t 发帖人：{} \t 发帖时间：{} \t 回复数量： {} \n'.format(
                 comment['title'], comment['link'], comment['name'], comment['time'], comment['replyNum']))
