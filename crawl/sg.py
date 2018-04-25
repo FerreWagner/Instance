@@ -23,8 +23,11 @@ def crawl_detail(url):
     for alexa in texts:
         comment = {}
         try:
-            comment['title'] = alexa.find('a', attrs={'class' : 's xst'}).text.strip()
-            comment['author'] = alexa.find('cite').text.strip()
+            comment['title']   = alexa.find('a', attrs={'class' : 's xst'}).text.strip()
+            comment['author']  = alexa.find('cite').text.strip()
+            comment['comment'] = alexa.find('td', attrs={'class' : 'num'}).find('a', attrs={'class' : 'xi2'}).text.strip()
+            comment['view']    = alexa.find('td', attrs={'class' : 'num'}).find('em').text.strip()
+            # comment['cate']    = alexa.find('th', attrs={'class' : 'common'}).find('em').find('a').text.strip()
             comments.append(comment)
         except:
             print('crawl wrong')
@@ -42,7 +45,7 @@ def save_file(dict):
     file_name = 'sg_' + str(ran) + str(time.strftime("%Y-%m-%d")) + file_name + '.txt'
     with open(file_name, 'a+', encoding='utf-8') as sg_file:
         for comment in dict:
-            sg_file.write('标题：{}\n'.format(comment['title']))
+            sg_file.write('标题：{}\n作者：{}\n评论：{}\n浏览：{}\n\n'.format(comment['title'], comment['author'], comment['comment'], comment['view']))
         print('file save success')
         sg_file.close()
 
