@@ -20,7 +20,7 @@ def crawl_detail(url):
     comments = []
     soup = BeautifulSoup(html, 'lxml')
 
-    texts = soup.find_all('div', attrs={'class' : 'c'})
+    texts = soup.find_all('div', attrs={'class' : 'card m-panel card9 weibo-member'})
 
     # foreach
     for alexa in texts:
@@ -35,7 +35,7 @@ def crawl_detail(url):
         except:
             print('crawl wrong')
 
-    print(url)
+    print(texts)
     exit()
     return comments
 
