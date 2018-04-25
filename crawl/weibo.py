@@ -20,7 +20,7 @@ def crawl_detail(url):
     comments = []
     soup = BeautifulSoup(html, 'lxml')
 
-    texts = soup.find_all('div', attrs={'class' : 'WB_cardwrap WB_feed_type S_bg2 WB_feed_like '})
+    texts = soup.find_all('div', attrs={'class' : 'c'})
 
     # foreach
     for alexa in texts:
@@ -35,7 +35,7 @@ def crawl_detail(url):
         except:
             print('crawl wrong')
 
-    print(comments)
+    print(url)
     exit()
     return comments
 
@@ -53,10 +53,10 @@ def save_file(dict):
         sg_file.close()
 
 
-def main(font_utl, end_url, deep):
+def main(url, deep):
     url_list = []
     for i in range(0, deep):
-        url_list.append(font_url + str(i) + end_url)
+        url_list.append(url + str(deep))
     print('url parser success')
 
     # 循环写入数据
@@ -67,9 +67,9 @@ def main(font_utl, end_url, deep):
 
 
 deep = 2
-font_url = 'https://weibo.com/u/2274543693?is_search=0&visible=0&is_all=1&is_tag=0&profile_ftype=1&page='
-end_url  = '#feedtop'
+url = 'https://weibo.cn/u/2274543693?page='
+# end_url  = '#feedtop'
 # 设置需要爬取的页码数量
 
 if __name__ == '__main__':
-    main(font_url, end_url, deep)
+    main(url, deep)
