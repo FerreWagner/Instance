@@ -67,7 +67,8 @@ def main(url, deep):
 
 
 deep = 2
-url = 'https://weibo.cn/u/2274543693?page='
+# url = 'https://weibo.cn/u/2274543693?page='
+url = 'https://m.weibo.cn/u/2274543693?uid=2274543693&luicode=10000012&lfid=1005053877828291_-_FOLLOWERS&featurecode=20000320'
 # end_url  = '#feedtop'
 # 设置需要爬取的页码数量
 
