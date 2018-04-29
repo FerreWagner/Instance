@@ -1,5 +1,7 @@
 from flask import Flask, url_for
 
+#基于flask的SPA项目 
+
 app = Flask(__name__)
 # 你可以用 url_for() 来给指定的函数构造 URL。它接受函数名作为第一个参数，也接受对应 URL 规则的变量部分的命名参数。未知变量部分会添加到 URL 末尾作为查询参数
 # @app.route('/')
@@ -7,7 +9,7 @@ app = Flask(__name__)
 #     return 'Hello World!'
 @app.route('/')
 def index():
-    return 'Index Page'
+    return 'Ferre's Index Page'
 
 @app.route('/hello')
 def hello():
