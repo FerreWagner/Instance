@@ -29,6 +29,10 @@ def show_post(post_id):
 def reek():
     return 'The about page'
 
+@app.route('/support')
+def support():
+    return 'The support page'
+
 # with app.test_request_context():
 #     print(url_for('login'))     #/login
     # print(url_for('profile', username='John Doe'))      #/user/John%20Doe
