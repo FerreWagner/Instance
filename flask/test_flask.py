@@ -9,7 +9,7 @@ app = Flask(__name__)
 #     return 'Hello World!'
 @app.route('/')
 def index():
-    return 'Ferre's Index Page'
+    return 'Ferre Index Page'
 
 @app.route('/hello')
 def hello():
