@@ -44,7 +44,7 @@ def login():
     else:
         return 'get login'
 
-# url_for('static', filename='freeze.css')
+# url_for('static', filename='freeze.css')  static/freeze.css
 # 引入css资源
 
 if __name__ == '__main__':
