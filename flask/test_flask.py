@@ -1,6 +1,6 @@
 from flask import Flask, url_for
-
-#基于flask的SPA项目 
+from flask import request
+#基于flask的SPA项目
 
 app = Flask(__name__)
 # 你可以用 url_for() 来给指定的函数构造 URL。它接受函数名作为第一个参数，也接受对应 URL 规则的变量部分的命名参数。未知变量部分会添加到 URL 末尾作为查询参数
@@ -36,6 +36,16 @@ def support():
 # with app.test_request_context():
 #     print(url_for('login'))     #/login
     # print(url_for('profile', username='John Doe'))      #/user/John%20Doe
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        return 'post login'
+    else:
+        return 'get login'
+
+# url_for('static', filename='freeze.css')
+# 引入css资源
 
 if __name__ == '__main__':
     app.run(debug=True)
