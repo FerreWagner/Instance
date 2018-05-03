@@ -1,4 +1,4 @@
-from flask import Flask, url_for
+from flask import Flask, url_for, render_template
 from flask import request
 #基于flask的SPA项目
 
@@ -43,6 +43,11 @@ def login():
         return 'post login'
     else:
         return 'get login'
+
+@app.route('/freeze/<name>')
+def freeze(name=None):
+    # url_for('static', filename='style.css')
+    return render_template('real.html', name=name)
 
 # url_for('static', filename='freeze.css')  static/freeze.css
 # 引入css资源
