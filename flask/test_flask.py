@@ -1,4 +1,4 @@
-from flask import Flask, url_for, render_template
+from flask import Flask, url_for, render_template, abort, redirect
 from flask import request
 #基于flask的SPA项目
 
@@ -49,8 +49,18 @@ def freeze(name=None):
     # url_for('static', filename='style.css')
     return render_template('real.html', name=name)
 
-# url_for('static', filename='freeze.css')  static/freeze.css
-# 引入css资源
+
+@app.route('/fade')
+def fade():
+    return redirect(url_for('login'))   #重定向
+
+@app.route('/relogin')
+def relogin():
+    abort(401)  #返回401错误
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('page_not_found.html'), 404
 
 if __name__ == '__main__':
     app.run(debug=True)
