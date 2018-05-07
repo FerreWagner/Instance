@@ -60,6 +60,7 @@ def relogin():
 
 @app.errorhandler(404)
 def page_not_found(error):
+    # app.config.from_envvar('FLASKR_SETTINGS', silent=True)    #设置一个名为 FLASKR_SETTINGS 的环境变量，指向要加载的配置文件。启用静默模式告诉 Flask 在没有设置该环境变量的情况下噤声。
     return render_template('page_not_found.html'), 404
 
 if __name__ == '__main__':
