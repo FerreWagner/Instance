@@ -12,7 +12,7 @@ def search_file(dir,sname):            # 当sname为空时，打印当前目录�
         search_file(os.path.join(dir,dire),sname) # jion一下就变成了当前文件的绝对路径
                                                   # 对每个子目录路劲执行同样的操作
 
-#修改特定文件名
+# 修改特定文件名
 def change_name(path, base_name, update_name):
     # 获取该目录下所有文件，存入列表中
     f = os.listdir(path)
