@@ -34,7 +34,18 @@ def change_first(path, new_name):
         os.rename(oldname, newname)
 
 
-change_name('D:/todo/', 'k', '你')
-# change_first('D:/todo/', 'ferre_')
+# 修改文件后缀
+def change_suffix(path, old_suf, suf):
+    f = os.listdir(path)
 
+    for i in f:
+        position = os.path.splitext(i)
+        if position[1] == old_suf:
+            newname = position[0] + suf
+            os.rename(path + i, path + newname)
+
+
+# change_name('D:/todo/', 'k', '你')
+# change_first('D:/todo/', 'ferre_')
+change_suffix('D:/todo/', '.rtf', '.txt')
 
