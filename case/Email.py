@@ -2,11 +2,11 @@ import smtplib
 from email.mime.text import MIMEText
 email_host = 'smtp.163.com'     #邮箱地址
 email_user = '1234@163.com'  # 发送者账号
-email_pwd = '1234'  # 发送者的密码
-maillist ='1234@qq.com'
+email_pwd  = '1234'  # 发送者的密码
+maillist   ='1234@qq.com'
 #收件人邮箱，多个账号的话，用逗号隔开
-me = email_user
-msg = MIMEText('这是个python测试邮件，不用回复。')    # 邮件内容
+me         = email_user
+msg        = MIMEText('这是个python测试邮件，不用回复。')    # 邮件内容
 msg['Subject'] = 'python测试'    # 邮件主题
 msg['From'] = me    # 发送者账号
 msg['To'] = maillist    # 接收者账号列表
