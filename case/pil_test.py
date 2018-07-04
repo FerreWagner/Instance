@@ -2,6 +2,7 @@
 from PIL import Image
 
 codeLib = '''@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''#生成字符画所需的字符集
+# codeLib = '*abcdefg'
 count = len(codeLib)
 
 def transform1(image_file):
